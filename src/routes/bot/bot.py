@@ -1,6 +1,12 @@
+import os
 import requests, json
+from dotenv import load_dotenv
+from pathlib import Path
 
-FACEBOOK_GRAPH_URL = 'https://graph.facebook.com/v2.6/me/'
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+FACEBOOK_GRAPH_URL = os.getenv('FACEBOOK_GRAPH_URL')
 
 class Bot(object):
     def __init__(self, access_token, api_url=FACEBOOK_GRAPH_URL):
