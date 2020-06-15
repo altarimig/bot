@@ -9,7 +9,7 @@ load_dotenv(dotenv_path=env_path)
 
 
 PAGE_ACCESS_TOKEN = os.getenv('PAGE_ACCESS_TOKEN')
-webhooks_token = os.getenv('WEBHOOKS_VERIFY_TOKEN')  # os.getenv('secret')
+webhooks_token = os.getenv('WEBHOOKS_VERIFY_TOKEN')  # os.getenv('secret') | Me parece muy evidente el texto (Miguel)
 
 primero = ['hola', 'buenas', 'lindo dia']
 segundo = ['bien y tu?', 'bien', 'bien y usted?', 'bien y tu']
@@ -21,7 +21,7 @@ def get_post(app):
         if request.method == 'GET':
             token = request.args.get('hub.verify_token')
             challenge = request.args.get('hub.challenge')
-            if token == webhooks_token: # if token == secret:
+            if token == webhooks_token: # if token == secret: | Ajustando nombre de variable (Miguel)
                 return str(challenge) 
             return '400'
         else:
